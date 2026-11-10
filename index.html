@@ -44,7 +44,7 @@ body::before {
 }
 
 .wrap {
-  max-width: 1040px;
+  max-width: 1120px;
   margin: 0 auto;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
@@ -174,6 +174,27 @@ h1 {
 }
 .chips a:hover { background: var(--blue); color: #ffffff; }
 
+/* Hero, two sides on desktop */
+.hero-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+.hero-grid > * { min-width: 0; }
+.hero-side { background: var(--blue); color: #ffffff; padding: 1.5rem 1.5rem 1.1rem; }
+.side-label { margin: 0 0 .5rem; font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #cfdcf5; }
+.hero-side ul { list-style: none; margin: 0; padding: 0; }
+.hero-side a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, .22);
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+}
+.hero-side a::after { content: "\2192"; flex: none; transition: transform .25s ease; }
+.hero-side a:hover::after { transform: translateX(4px); }
+.hero-side a:focus-visible { outline-color: #ffffff; }
+.about p + .label { margin-top: 1.75rem; }
+
 /* About */
 .about { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
 .about > * { min-width: 0; }
@@ -288,6 +309,9 @@ footer p { margin: 0; }
 @media (min-width: 640px) {
   .tiles { grid-template-columns: repeat(2, 1fr); }
 }
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: 1.3fr .7fr; gap: 4rem; align-items: center; }
+}
 @media (min-width: 800px) {
   .about { grid-template-columns: 1.1fr .9fr; gap: 4rem; }
   .job { grid-template-columns: 11rem 1fr; }
@@ -329,7 +353,8 @@ body { -webkit-font-smoothing: antialiased; }
 
 <main>
   <section class="hero" id="top">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
       <p class="status">Open for Marketing, Social Media, Advertising and Video Editing projects</p>
       <h1>Tanvir<br>Ahmed</h1>
       <p class="role">Marketing Executive</p>
@@ -338,6 +363,18 @@ body { -webkit-font-smoothing: antialiased; }
         <a class="btn primary" href="#projects">See my projects</a>
         <a class="btn" href="#contact">Contact me</a>
       </div>
+      </div>
+      <aside class="hero-side" aria-label="Services">
+        <p class="side-label">What I do</p>
+        <ul>
+          <li><a href="#services">Advertise Making</a></li>
+          <li><a href="#services">Video Editing</a></li>
+          <li><a href="#services">Customer Relationships Management</a></li>
+          <li><a href="#services">Virtual Assistant / Office Assistant</a></li>
+          <li><a href="#services">Social Media Marketing</a></li>
+          <li><a href="#services">Performance Marketing</a></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -347,6 +384,17 @@ body { -webkit-font-smoothing: antialiased; }
       <div class="about">
         <div>
           <p>BBA student majoring in Marketing at Comilla University, looking for a Junior Marketing Executive role. I create content that helps brands connect with their audience.</p>
+          <p class="label">Skills</p>
+          <ul class="tags tech">
+            <li>Video Editing</li>
+            <li>Designing</li>
+            <li>Content Writing</li>
+            <li>Social Media Marketing</li>
+            <li>Marketing Campaign</li>
+            <li>Prompt Engineering</li>
+            <li>Excel</li>
+            <li>PowerPoint</li>
+          </ul>
         </div>
         <div>
           <p class="label">Education</p>
@@ -361,17 +409,6 @@ body { -webkit-font-smoothing: antialiased; }
               <span>Dhaka City College · GPA 5.00</span>
               <span class="yrs">2023 – 2024</span>
             </li>
-          </ul>
-          <p class="label">Skills</p>
-          <ul class="tags tech">
-            <li>Video Editing</li>
-            <li>Designing</li>
-            <li>Content Writing</li>
-            <li>Social Media Marketing</li>
-            <li>Marketing Campaign</li>
-            <li>Prompt Engineering</li>
-            <li>Excel</li>
-            <li>PowerPoint</li>
           </ul>
         </div>
       </div>
