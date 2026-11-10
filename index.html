@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Tanvir Ahmed Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: sticky name bar, then one column of sections split by hairlines. Services in a grid with navy top rules, experience as a dated list, projects as video tiles. White page, navy and black type, dark blue for every highlight. */
+:root {
+  --paper: #ffffff;
+  --ink: #0b1633;
+  --blue: #0a3a8c;
+  --blue-deep: #072a69;
+  --mist: #eef3fc;
+  --line: #c9d5ea;
+  --muted: #3f4d6b;
+  --font-display: 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--paper);
+}
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Header */
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.top-row { display: flex; align-items: center; gap: 1rem; min-height: 3.5rem; }
+.mark {
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  background: var(--blue);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  gap: 1.1rem;
+  margin-left: auto;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+nav::-webkit-scrollbar { display: none; }
+nav a {
+  white-space: nowrap;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .9rem;
+  padding: .5rem 0;
+  border-bottom: 2px solid transparent;
+}
+nav a { transition: border-color .25s ease, color .25s ease; }
+nav a:hover, nav a.on { border-color: var(--blue); }
+nav a.on { color: var(--blue); }
+
+/* Sections */
+section { padding-block: clamp(3rem, 8vw, 5.5rem); border-top: 1px solid var(--line); scroll-margin-top: 4rem; }
+section.hero { border-top: 0; padding-top: clamp(2.5rem, 7vw, 5rem); padding-bottom: clamp(2.5rem, 6vw, 4rem); }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 6vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin: 0 0 .75rem;
+  text-wrap: balance;
+}
+h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; line-height: 1.25; margin: 0 0 .4rem; }
+p { margin: 0 0 1rem; }
+.lead { max-width: 38rem; color: var(--muted); font-size: 1.05rem; margin-bottom: 2.25rem; }
+.label {
+  margin: 0 0 .6rem;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+/* Hero */
+.status { display: flex; align-items: center; gap: .6rem; font-weight: 500; font-size: .95rem; margin-bottom: 1.5rem; }
+.status::before { content: ""; flex: none; width: .6rem; height: .6rem; background: var(--blue); border-radius: 50%; }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.25rem, 14vw, 7rem);
+  line-height: .92;
+  letter-spacing: -.03em;
+  margin: 0 0 1.25rem;
+}
+.role {
+  display: inline-block;
+  background: var(--blue);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 4vw, 1.6rem);
+  padding: .25rem .8rem;
+  margin: 0 0 1.5rem;
+}
+.hero .lede { max-width: 34rem; font-size: 1.15rem; margin-bottom: 1.75rem; }
+.cta { display: flex; flex-wrap: wrap; gap: .75rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.9rem;
+  padding: 0 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  background: var(--paper);
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s cubic-bezier(.2, .7, .2, 1);
+}
+.btn.primary { background: var(--blue); color: #ffffff; }
+.btn:hover { background: var(--blue-deep); border-color: var(--blue-deep); color: #ffffff; transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 2.5rem 0 0; padding: 0; }
+.chips a {
+  display: inline-block;
+  padding: .4rem .8rem;
+  border: 1.5px solid var(--blue);
+  color: var(--blue);
+  font-weight: 500;
+  font-size: .9rem;
+  text-decoration: none;
+}
+.chips a:hover { background: var(--blue); color: #ffffff; }
+
+/* About */
+.about { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+.about > * { min-width: 0; }
+.about p { max-width: 36rem; font-size: 1.05rem; }
+.edu { list-style: none; margin: 0 0 2rem; padding: 0; display: grid; gap: 1rem; }
+.edu li { border-top: 1px solid var(--line); padding-top: .85rem; }
+.edu strong { display: block; }
+.edu span { display: block; color: var(--muted); font-size: .95rem; }
+.edu .yrs { color: var(--blue); font-weight: 700; font-variant-numeric: tabular-nums; }
+.tags { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0 0 1.75rem; padding: 0; }
+.tags li { padding: .3rem .7rem; font-size: .9rem; border: 1px solid var(--line); }
+.tags.tech li { border-color: var(--blue); color: var(--blue-deep); font-weight: 500; }
+.tags.soft li { background: var(--mist); border-color: var(--mist); }
+
+/* Services */
+.grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.svc {
+  min-width: 0;
+  padding: 1rem 1.1rem 1.35rem;
+  background: var(--paper);
+  border-top: 3px solid var(--blue);
+  transition: transform .3s cubic-bezier(.2, .7, .2, 1), background-color .3s ease, box-shadow .3s ease;
+}
+.svc:hover { transform: translateY(-4px); background: var(--mist); box-shadow: 0 12px 28px rgba(10, 58, 140, .10); }
+.svc p { color: var(--muted); margin: 0; }
+.svc .skills { font-size: .85rem; font-weight: 500; color: var(--blue-deep); margin: 0; }
+
+/* Experience */
+.jobs { list-style: none; margin: 0; padding: 0; }
+.job { display: grid; gap: .4rem 2rem; padding-block: 1.5rem; border-top: 1px solid var(--line); }
+.job:first-child { border-top: 2px solid var(--ink); }
+.job > * { min-width: 0; }
+.when { margin: 0; font-weight: 700; color: var(--blue); font-size: .95rem; font-variant-numeric: tabular-nums; }
+.job .what { margin: 0 0 .5rem; color: var(--muted); font-weight: 500; }
+.job ul { margin: 0; padding-left: 1.15rem; }
+.job li { margin-bottom: .4rem; max-width: 40rem; }
+.job li::marker { color: var(--blue); }
+
+/* Projects */
+.tiles { display: grid; gap: 2.25rem 1.5rem; grid-template-columns: 1fr; }
+.tile { display: block; min-width: 0; color: var(--ink); text-decoration: none; }
+.tile h3 { margin-bottom: .3rem; }
+.tile .go { display: inline-block; margin: 0; color: var(--blue); font-weight: 700; font-size: .95rem; border-bottom: 2px solid var(--blue); }
+.tile .go::after { content: "\2192"; display: inline-block; margin-left: .4rem; transition: transform .25s ease; }
+.tile:hover .go::after { transform: translateX(4px); }
+.thumb { transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease, border-color .3s ease; }
+.thumb::after { transition: transform .3s cubic-bezier(.2, .7, .2, 1); }
+.tile:hover .thumb { transform: translateY(-4px); border-color: var(--blue); box-shadow: 0 12px 28px rgba(10, 58, 140, .12); }
+.tile:hover .thumb::after { transform: scale(1.2); }
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  display: grid;
+  place-items: center;
+  margin-bottom: .9rem;
+  background: var(--mist);
+  border: 1px solid var(--line);
+}
+.thumb::after {
+  content: "";
+  border-style: solid;
+  border-width: .9rem 0 .9rem 1.5rem;
+  border-color: transparent transparent transparent var(--blue);
+  margin-left: .3rem;
+}
+.thumb .tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: .25rem .6rem;
+  background: var(--blue);
+  color: #ffffff;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.tile p { color: var(--muted); font-size: .95rem; margin: 0; }
+
+/* Contact */
+.rows { border-bottom: 1px solid var(--line); }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem 1rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--line);
+}
+.row > div { min-width: 0; }
+.row .k { margin: 0; font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.row .v { margin: 0; font-size: 1.15rem; font-weight: 500; overflow-wrap: anywhere; }
+.copy {
+  font: inherit;
+  font-weight: 700;
+  min-height: 2.75rem;
+  min-width: 5.5rem;
+  padding: 0 1.1rem;
+  border: 2px solid var(--blue);
+  background: var(--paper);
+  color: var(--blue);
+  cursor: pointer;
+}
+.copy { transition: background-color .25s ease, color .25s ease; }
+.copy:hover { background: var(--blue); color: #ffffff; }
+
+footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+footer p { margin: 0; }
+
+@media (min-width: 640px) {
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 800px) {
+  .about { grid-template-columns: 1.1fr .9fr; gap: 4rem; }
+  .job { grid-template-columns: 11rem 1fr; }
+}
+body { -webkit-font-smoothing: antialiased; }
+
+/* Entrance motion: everything stays visible, it only eases up a few pixels. */
+@keyframes rise {
+  from { opacity: .55; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.hero .wrap > * { animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
+.hero .wrap > :nth-child(2) { animation-delay: .07s; }
+.hero .wrap > :nth-child(3) { animation-delay: .14s; }
+.hero .wrap > :nth-child(4) { animation-delay: .21s; }
+.hero .wrap > :nth-child(5) { animation-delay: .28s; }
+.reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+.pre { opacity: .55; transform: translateY(18px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .pre { opacity: 1; transform: none; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="#top" aria-label="Tanvir Ahmed, back to top">TA</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="status">Open for Marketing, Social Media, Advertising and Video Editing projects</p>
+      <h1>Tanvir<br>Ahmed</h1>
+      <p class="role">Marketing Executive</p>
+      <p class="lede">I make ads, edit videos and run social media for brands. Based in Cumilla, Bangladesh.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <div class="about">
+        <div>
+          <p>BBA student majoring in Marketing at Comilla University, looking for a Junior Marketing Executive role. I create content that helps brands connect with their audience.</p>
+        </div>
+        <div>
+          <p class="label">Education</p>
+          <ul class="edu">
+            <li>
+              <strong>Bachelor of Business Administration</strong>
+              <span>Comilla University · Major in Marketing</span>
+              <span class="yrs">April 2026 – 2030</span>
+            </li>
+            <li>
+              <strong>Higher Secondary Certificate</strong>
+              <span>Dhaka City College · GPA 5.00</span>
+              <span class="yrs">2023 – 2024</span>
+            </li>
+          </ul>
+          <p class="label">Skills</p>
+          <ul class="tags tech">
+            <li>Video Editing</li>
+            <li>Designing</li>
+            <li>Content Writing</li>
+            <li>Social Media Marketing</li>
+            <li>Marketing Campaign</li>
+            <li>Prompt Engineering</li>
+            <li>Excel</li>
+            <li>PowerPoint</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>Services</h2>
+      <p class="lead">What I can do for your brand.</p>
+      <div class="grid">
+        <article class="svc">
+          <h3>Advertise Making</h3>
+          <p>Ad ideas, copy and designs that get a brand noticed.</p>
+        </article>
+        <article class="svc">
+          <h3>Video Editing</h3>
+          <p>Clean, well-paced edits for ads, promos and social media.</p>
+        </article>
+        <article class="svc">
+          <h3>Customer Relationships Management</h3>
+          <p>Organized customer details and on-time follow-ups.</p>
+        </article>
+        <article class="svc">
+          <h3>Virtual Assistant / Office Assistant</h3>
+          <p>Documents, data entry, reports and admin tasks.</p>
+        </article>
+        <article class="svc">
+          <h3>Social Media Marketing</h3>
+          <p>Content planning and posting that grows an audience.</p>
+        </article>
+        <article class="svc">
+          <h3>Performance Marketing</h3>
+          <p>Paid campaigns built around clear goals and results.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <p class="lead">Most recent first.</p>
+      <ol class="jobs">
+        <li class="job">
+          <p class="when">Sep 2026 – Present</p>
+          <div>
+            <h3>United Nations Youth and Students Association</h3>
+            <p class="what">Supporting events and representing the association on youth platforms.</p>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">May 2026 – Sep 2026</p>
+          <div>
+            <h3>Youth School for Social Entrepreneurs (YSSE)</h3>
+            <p class="what">Hosting programs and coordinating instructor recruitment and hiring.</p>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">April 2026 – Sep 2026</p>
+          <div>
+            <h3>Campus Lead, LinkedIn Community Bangladesh</h3>
+            <p class="what">Campus point of contact, promoting initiatives online.</p>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">Sep 2025 – Nov 2025</p>
+          <div>
+            <h3>Trainee, Flomax IT</h3>
+            <p class="what">Word, Excel and PowerPoint, plus data entry and reporting.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="lead">Tap a video to watch it on Google Drive.</p>
+      <div class="tiles">
+        <a class="tile" href="https://drive.google.com/file/d/1vwNAxzZFPp4VhhXsYFcQrqaFgvCmaFmC/view?usp=drivesdk">
+          <div class="thumb"><span class="tag">Editing</span></div>
+          <h3>Ali Abdaal Style Modern Editing</h3>
+          <p class="go">Watch on Google Drive</p>
+        </a>
+        <a class="tile" href="https://drive.google.com/file/d/1oEQsTYPI5lVfLahLATNcysu7k73nrjHq/view?usp=drivesdk">
+          <div class="thumb"><span class="tag">Motion graphics</span></div>
+          <h3>Motion Graphics With Storytelling</h3>
+          <p class="go">Watch on Google Drive</p>
+        </a>
+        <a class="tile" href="https://drive.google.com/file/d/1qMzHLg7v01gt2X6HcrtEalxqKXXtr6Cl/view?usp=drivesdk">
+          <div class="thumb"><span class="tag">Advertising</span></div>
+          <h3>Product Advertising</h3>
+          <p class="go">Watch on Google Drive</p>
+        </a>
+        <a class="tile" href="https://drive.google.com/file/d/1bkpBaSDF-bJJM5dEZ8HvOPqrWS4tDu8i/view?usp=drivesdk">
+          <div class="thumb"><span class="tag">Editing</span></div>
+          <h3>Video Editing</h3>
+          <p class="go">Watch on Google Drive</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Let's work together</h2>
+      <p class="lead">Tell me what you need.</p>
+      <div class="rows">
+        <div class="row">
+          <div>
+            <p class="k">Email</p>
+            <p class="v" id="c-email">tanvirahmedsamm@gmail.com</p>
+          </div>
+          <button class="copy" type="button" data-copy="c-email">Copy</button>
+        </div>
+        <div class="row">
+          <div>
+            <p class="k">Phone</p>
+            <p class="v" id="c-phone">01612176296</p>
+          </div>
+          <button class="copy" type="button" data-copy="c-phone">Copy</button>
+        </div>
+        <div class="row">
+          <div>
+            <p class="k">Location</p>
+            <p class="v">Cumilla, Bangladesh</p>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <p class="k">LinkedIn</p>
+            <p class="v"><a href="https://www.linkedin.com/in/tanvirahmedsam">linkedin.com/in/tanvirahmedsam</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Tanvir Ahmed · Marketing Executive</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  var original = btn.textContent;
+  btn.addEventListener('click', function () {
+    var target = document.getElementById(btn.getAttribute('data-copy'));
+    var text = target.textContent.trim();
+    var done = function (msg) {
+      btn.textContent = msg;
+      setTimeout(function () { btn.textContent = original; }, 1800);
+    };
+    var fallback = function () {
+      var range = document.createRange();
+      range.selectNodeContents(target);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      done('Selected');
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback);
+    } catch (e) {
+      fallback();
+    }
+  });
+});
+
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var links = document.querySelectorAll('nav a');
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      links.forEach(function (a) {
+        a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id);
+      });
+    });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+  document.querySelectorAll('main section[id]').forEach(function (s) { spy.observe(s); });
+
+  if (reduce) return;
+  var seen = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      el.classList.remove('pre');
+      seen.unobserve(el);
+      setTimeout(function () {
+        el.classList.remove('reveal');
+        el.style.transitionDelay = '';
+      }, 1100);
+    });
+  }, { threshold: 0.12 });
+  var items = document.querySelectorAll('section:not(.hero) h2, section:not(.hero) .lead, .about > div, .svc, .job, .tile, .row');
+  items.forEach(function (el) {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+    var index = Array.prototype.indexOf.call(el.parentNode.children, el);
+    el.style.transitionDelay = Math.min(index, 5) * 70 + 'ms';
+    el.classList.add('reveal', 'pre');
+    seen.observe(el);
+  });
+})();
+</script>
+
+</html>
