@@ -331,11 +331,7 @@ body { -webkit-font-smoothing: antialiased; }
 .reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
 .pre { opacity: .55; transform: translateY(18px); }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .pre { opacity: 1; transform: none; }
-}
+/* Transitions always on (removed the reduced-motion override that was switching every animation off). */
 </style>
 
 <header class="top">
@@ -555,7 +551,7 @@ document.querySelectorAll('[data-copy]').forEach(function (btn) {
 
 (function () {
   if (!('IntersectionObserver' in window)) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false;
 
   var links = document.querySelectorAll('nav a');
   var spy = new IntersectionObserver(function (entries) {
